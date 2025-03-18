@@ -54,7 +54,6 @@ class _QuizState extends State<Quiz> {
               colors: [
                 Color.fromARGB(255, 78, 13, 151),
                 Colors.blue,
-                Color.fromARGB(255, 107, 15, 168),
               ],
             ),
           ),

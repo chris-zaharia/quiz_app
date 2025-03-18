@@ -14,7 +14,7 @@ class ResultsScreen extends StatelessWidget {
         {
           'question_index': i,
           'question': questions[i].text,
-          'correct_answer' :questions[i].answers[0],
+          'correct_answer': questions[i].answers[0],
           'user_answer': chosenAnswers[i],
         },
       );
@@ -25,6 +25,14 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(context) {
+    final summaryData = getSummaryData();
+    final numTotalQuestions = questions.length;
+    final numCorrectQuestions = summaryData.where(
+      (data) {
+        return data['correct_answer'] == data['user_answer'];
+      },
+    ).length;
+
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -32,24 +40,35 @@ class ResultsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('You answered X out of Y questions Correctly'),
+            Text(
+                'You answered $numCorrectQuestions out of $numTotalQuestions questions Correctly'),
             const SizedBox(
               height: 30,
             ),
-            QuestionsSummary(
-              summaryData: getSummaryData()
-              ),
+            QuestionsSummary(summaryData: getSummaryData()),
             const SizedBox(
               height: 30,
             ),
-            TextButton(
+            OutlinedButton.icon(
+              icon: const Icon(Icons.restart_alt_outlined, size: 20,color: Colors.white,),
               onPressed: () {},
-              child: const Text('Restart Quiz'),
-            )
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.white,
+                padding: EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: 30,
+                ),
+              ),
+              label: Text(
+                "Restart Quiz",
+                style: TextStyle(
+                  fontSize: 24,
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
-

@@ -7,24 +7,62 @@ class QuestionsSummary extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return Column(
-      children: summaryData.map((data) {
-        return Row(
-          children: [
-               Text(((data['question_index'] as int) +1).toString()),
+    return SizedBox(
+      height: 600,
+      child: SingleChildScrollView(
+        child: Column(
+          children: summaryData.map((data) {
+            return Row(
+              children: [
+              Container(
+                width: 30,
+                height: 30,
+                decoration: const BoxDecoration(
+                  color: Colors.green,
+                  shape: BoxShape.circle,
+                ),
+                alignment: Alignment.center,
+                child: Text(
+                  ((data['question_index'] as int) + 1).toString(),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
               Expanded(
                 child: Column(
-                  children:[
-                    Text(data['question'] as String),
-                    const SizedBox(height:5,),
-                    Text(data['user_answer'] as String),
-                    Text(data['correct_answer'] as String),
+                  children: [
+                    Text(
+                      data['question'] as String,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      data['user_answer'] as String,
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
+                    ),
+                    Text(
+                      data['correct_answer'] as String,
+                      style: TextStyle(
+                          color: Colors.lightGreen,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ],
                 ),
               )
-          ]
-        );
-      }).toList(),
+            ]);
+          }).toList(),
+        ),
+      ),
     );
   }
 }
