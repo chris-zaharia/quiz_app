@@ -41,7 +41,13 @@ class ResultsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-                'You answered $numCorrectQuestions out of $numTotalQuestions questions Correctly'),
+              'You answered $numCorrectQuestions out of $numTotalQuestions questions Correctly',
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
             const SizedBox(
               height: 30,
             ),
@@ -50,7 +56,11 @@ class ResultsScreen extends StatelessWidget {
               height: 30,
             ),
             OutlinedButton.icon(
-              icon: const Icon(Icons.restart_alt_outlined, size: 20,color: Colors.white,),
+              icon: const Icon(
+                Icons.restart_alt_outlined,
+                size: 20,
+                color: Colors.white,
+              ),
               onPressed: () {},
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.white,

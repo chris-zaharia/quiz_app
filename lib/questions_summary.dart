@@ -12,13 +12,14 @@ class QuestionsSummary extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: summaryData.map((data) {
-            return Row(
-              children: [
+            return Row(children: [
               Container(
                 width: 30,
                 height: 30,
-                decoration: const BoxDecoration(
-                  color: Colors.green,
+                decoration: BoxDecoration(
+                  color: data['user_answer'] == data['correct_answer']
+                      ? Colors.green
+                      : Colors.red,
                   shape: BoxShape.circle,
                 ),
                 alignment: Alignment.center,
