@@ -14,8 +14,8 @@ class QuestionsSummary extends StatelessWidget {
           children: summaryData.map((data) {
             return Row(children: [
               Container(
-                width: 30,
-                height: 30,
+                width: 40,
+                height: 40,
                 decoration: BoxDecoration(
                   color: data['user_answer'] == data['correct_answer']
                       ? Colors.green
@@ -35,9 +35,10 @@ class QuestionsSummary extends StatelessWidget {
                   children: [
                     Text(
                       data['question'] as String,
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 14,
+                        fontSize: 18,
                       ),
                     ),
                     const SizedBox(
@@ -48,14 +49,16 @@ class QuestionsSummary extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.grey,
                         fontWeight: FontWeight.bold,
-                        fontSize: 14,
+                        fontSize: 20,
                       ),
                     ),
                     Text(
                       data['correct_answer'] as String,
                       style: TextStyle(
-                          color: Colors.lightGreen,
-                          fontWeight: FontWeight.bold),
+                        color: Colors.lightGreen,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
                     ),
                   ],
                 ),
