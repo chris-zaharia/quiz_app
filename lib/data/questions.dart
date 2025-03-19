@@ -47,4 +47,13 @@ QuizQuestion(
     'Commit and push',
   ]
 ),
+QuizQuestion(
+  'What type of computer does Chris use?', 
+  [
+    'Macbook', //Correct Answer
+    'Linux Laptop',
+    'Windows Laptop',
+    'Microsoft surface',
+  ]
+),
 ];
